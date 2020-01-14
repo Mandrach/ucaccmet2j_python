@@ -32,25 +32,41 @@ with open ('precipitation.json') as json_file:
 
     for measurement in precipitation_data:
         if measurement['station'] == station_code:
-            print(measurement['value'])
-
-
-
-
+            #print(measurement['value'])
+        
 # 2. Sum all measurements and save them in a list
     # We have to go through the data, check for the station, and then sort by date. 
     # 1. does already go through all the data. But how to sort by date?
-    # 
-
-
     # how can I split the date by month? 
+    measurement_of_station = []
+    measurement['date'].split('-')
+    for measurement in precipitation_data:
+        if measurement['station'] == station_code:
+            for month in measurement['date']:
+                while measurement['date'][2] == month:
+                    measurement_of_station[measurement] += measurement['value']
 
-    # measurement_of_station = []
-    # for measurement in precipitation_data:
-    #     if measurement['station'] == station_code
-    #     # measurement['date'].split('-') ?
-    # #      while measurement['date'] 
-    # #     measurement_of_station[measurement] += measurement['value']
-    #     else 
+
+# save the result as a json file
+
+
+# Part 2
+    # Nr. 1 - Percipitation value for the whole year
+percipitation_year = sum(measurement_of_station[2])
+
+    # Nr. 2 - Calculate the relative precipitation per month 
+    # (percentage compared to the precipitation over the whole year)
+
+# a dictionary which should contain 12 entries, representing the relative value for each month
+# month is the key, the relative value of the calculation is the value
+relative_per_month = {} 
+for month in measurement_of_station:
+    relative_per_month[month] = measurement_of_station[month] / percipitation_year
+    
+
+
+
+    
+        
 
 
