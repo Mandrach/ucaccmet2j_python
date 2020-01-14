@@ -5,6 +5,7 @@
         "station": "GHCND:USW00093814",
         "value": 0
     },
+
     {
         "datatype": "PRCP",
         "date": "2010-01-02",
