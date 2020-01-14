@@ -51,9 +51,9 @@ with open ('precipitation.json') as json_file:
                     measurement_of_station[month] += measurement['value'] # creating the sum for current month
 
 # save the result as a json file
-#with  open(’myJSONfile.json’, ’w’) as f:
-    # open  JSON  file3json.dump(my_dictionary 
- #   , f, indent=4, sort_keys=True)
+with  open('myJSONfile.json', 'w') as f:                    # open  JSON  file
+    json.dump(measurement_of_station, f, indent=4, sort_keys=True)   # write  my_dictionary  to  file  in a  pretty  JSON  format
+   
 
 # Part 2
     # Nr. 1 - Percipitation value for the whole year
