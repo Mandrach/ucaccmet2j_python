@@ -42,14 +42,11 @@ with open ('precipitation.json') as json_file:
     measurement_of_station = [
         0
     ]*12
-
     for measurement in precipitation_data:
         date_parsed = measurement['date'].split('-')
         if measurement['station'] == station_code:
-            #for month in date_parsed:
-                while measurement['date'][2] == month:
-                    measurement_of_station[measurement] += measurement['value']
-
+            if date_parsed[2] == '01':
+                    measurement_of_station += measurement['value'] # creating the sum for current month
 
 # save the result as a json file
 
@@ -57,6 +54,7 @@ with open ('precipitation.json') as json_file:
 # Part 2
     # Nr. 1 - Percipitation value for the whole year
 percipitation_year = sum(measurement_of_station)
+print(f'The percipitation for the year is: {percipitation_year}')
 
     # Nr. 2 - Calculate the relative precipitation per month 
     # (percentage compared to the precipitation over the whole year)
@@ -66,6 +64,7 @@ percipitation_year = sum(measurement_of_station)
 relative_per_month = {} 
 for month in range(len(measurement_of_station)):
     relative_per_month[month] = measurement_of_station[month] / percipitation_year
+print(f'The relative percipitation for each month for the station Seattle is: {relative_per_month}')
     
 
 
