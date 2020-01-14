@@ -21,16 +21,36 @@ import json
     #    if file_dict[location] == 'Seattle'
     #        print(file_dict[location])
 
+
 # 1. load in json data & find 
 with open ('precipitation.json') as json_file:
-    precipitation_data = json_file.read()
+    precipitation_data = json.load(json_file)
     # Use this station code to select all the measurements belonging to it from the JSON data
     # GHCND:US1WAKG0038
     #precipitation_dict = {}
     station_code = 'GHCND:US1WAKG0038'
 
     for measurement in precipitation_data:
-        if precipitation_data[measurement][station == station_code]:
-            print(precipitation_data[measurement][value])
+        if measurement['station'] == station_code:
+            print(measurement['value'])
+
+
+
+
+# 2. Sum all measurements and save them in a list
+    # We have to go through the data, check for the station, and then sort by date. 
+    # 1. does already go through all the data. But how to sort by date?
+    # 
+
+
+    # how can I split the date by month? 
+
+    # measurement_of_station = []
+    # for measurement in precipitation_data:
+    #     if measurement['station'] == station_code
+    #     # measurement['date'].split('-') ?
+    # #      while measurement['date'] 
+    # #     measurement_of_station[measurement] += measurement['value']
+    #     else 
 
 
